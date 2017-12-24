@@ -1,0 +1,13 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Mantis - Todos os Cenários" verbose="2">
+	<listeners>
+		<listener class-name="br.com.julianograciano.testng.TestNGListener" />
+	</listeners>
+	<suite-files>
+		<suite-file path="xml\Login.xml" />
+		<suite-file path="xml\ReportarDefeito.xml" />
+		<suite-file path="xml\EnviarArquivos.xml" />
+		<suite-file path="xml\AlterarStatus.xml" />
+	</suite-files>
+</suite>

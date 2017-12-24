@@ -1,0 +1,32 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Mantis - Reportar Defeito" verbose="2">
+	<listeners>
+		<listener class-name="br.com.julianograciano.testng.TestNGListener" />
+	</listeners>
+
+	<test name="Reportar Defeito - Chrome" enabled="true">
+		<parameter name="browser" value="chrome" />
+		<parameter name="testData" value="data\Reportar Defeito.xlsx" />
+		<classes>
+			<class name="br.com.julianograciano.test.TestReportarDefeito">
+				<methods>
+					<include name="reportarDefeito" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+	<test name="Reportar Defeito - Firefox" enabled="true">
+		<parameter name="browser" value="firefox" />
+		<parameter name="testData" value="data\Reportar Defeito.xlsx" />
+		<classes>
+			<class name="br.com.julianograciano.test.TestReportarDefeito">
+				<methods>
+					<include name="reportarDefeito" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+</suite>

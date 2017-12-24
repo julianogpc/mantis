@@ -1,0 +1,23 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Mantis" verbose="2" parallel="tests">
+	<listeners>
+		<listener class-name="br.com.julianograciano.testng.TestNGListener" />
+	</listeners>
+
+	<test name="TestData from Excel - Chrome" enabled="true">
+		<parameter name="browser" value="chrome" />
+		<parameter name="testData" value="data\ST01.xlsx" />
+		<classes>
+			<class name="br.com.julianograciano.test.unitario.TestDataFromExcel" />
+		</classes>
+	</test>
+
+	<test name="TestData from Excel - Firefox" enabled="true">
+		<parameter name="browser" value="firefox" />
+		<parameter name="testData" value="data\ST01.xlsx" />
+		<classes>
+			<class name="br.com.julianograciano.test.unitario.TestDataFromExcel" />
+		</classes>
+	</test>
+</suite>

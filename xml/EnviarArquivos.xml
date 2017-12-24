@@ -1,0 +1,32 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Mantis - Enviar Arquivo" verbose="2">
+	<listeners>
+		<listener class-name="br.com.julianograciano.testng.TestNGListener" />
+	</listeners>
+
+	<test name="Alterar Status - Chrome" enabled="true">
+		<parameter name="browser" value="chrome" />
+		<parameter name="testData" value="data\Enviar Arquivo - Chrome.xlsx" />
+		<classes>
+			<class name="br.com.julianograciano.test.TestEnviarArquivo">
+				<methods>
+					<include name="enviarArquivo" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+	<test name="Alterar Status - Firefox" enabled="true">
+		<parameter name="browser" value="firefox" />
+		<parameter name="testData" value="data\Enviar Arquivo - Firefox.xlsx" />
+		<classes>
+			<class name="br.com.julianograciano.test.TestEnviarArquivo">
+				<methods>
+					<include name="enviarArquivo" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+</suite>

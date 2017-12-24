@@ -1,0 +1,32 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Mantis - Login com Sucesso" verbose="2">
+	<listeners>
+		<listener class-name="br.com.julianograciano.testng.TestNGListener" />
+	</listeners>
+
+	<test name="Login com Sucesso - Chrome" enabled="true">
+		<parameter name="browser" value="chrome" />
+		<parameter name="testData" value="" />
+		<classes>
+			<class name="br.com.julianograciano.test.TestLogin">
+				<methods>
+					<include name="loginComSucesso" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+	<test name="Login com Sucesso - Firefox" enabled="true">
+		<parameter name="browser" value="firefox" />
+		<parameter name="testData" value="" />
+		<classes>
+			<class name="br.com.julianograciano.test.TestLogin">
+				<methods>
+					<include name="loginComSucesso" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+</suite>

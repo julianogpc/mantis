@@ -1,0 +1,32 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Mantis - Alterar Status" verbose="2">
+	<listeners>
+		<listener class-name="br.com.julianograciano.testng.TestNGListener" />
+	</listeners>
+
+	<test name="Alterar Status - Chrome" enabled="true">
+		<parameter name="browser" value="chrome" />
+		<parameter name="testData" value="data\Alterar Status - Chrome.xlsx" />
+		<classes>
+			<class name="br.com.julianograciano.test.TestAlterarStatus">
+				<methods>
+					<include name="alterarStatus" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+	<test name="Alterar Status - Firefox" enabled="true">
+		<parameter name="browser" value="firefox" />
+		<parameter name="testData" value="data\Alterar Status - Firefox.xlsx" />
+		<classes>
+			<class name="br.com.julianograciano.test.TestAlterarStatus">
+				<methods>
+					<include name="alterarStatus" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+</suite>

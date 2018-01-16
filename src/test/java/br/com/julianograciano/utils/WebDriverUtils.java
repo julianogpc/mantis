@@ -1,9 +1,7 @@
 package br.com.julianograciano.utils;
 
-import org.openqa.selenium.MutableCapabilities;
 import org.openqa.selenium.WebDriver;
 
-import br.com.julianograciano.driver.Capabilities;
 import br.com.julianograciano.driver.DriverFactory;
 import br.com.julianograciano.driver.DriverManager;
 import br.com.julianograciano.driver.DriverProvider;
@@ -23,13 +21,10 @@ public final class WebDriverUtils {
 	 * @param browser
 	 */
 	public static final void startWebDriver(String browser) {
-		MutableCapabilities capabilities = Capabilities.getBrowserCapabilities(browser);
 		DriverManager.setDriverProvider(DriverFactory.createInstance());
-		DriverManager.getDriverProvider().setWebDriver(DriverFactory.createInstance(capabilities, browser));
-
+		DriverManager.getDriverProvider().setWebDriver(DriverFactory.createInstance(browser));
 		if (!browser.equals("chrome-headless"))
 			DriverManager.getDriverProvider().getWebDriver().manage().window().maximize();
-
 		DriverManager.getDriverProvider().getWebDriver().manage().deleteAllCookies();
 	}
 

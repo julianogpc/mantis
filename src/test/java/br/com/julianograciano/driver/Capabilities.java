@@ -4,7 +4,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import org.openqa.selenium.MutableCapabilities;
-import org.openqa.selenium.Platform;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
@@ -18,7 +17,7 @@ import org.openqa.selenium.firefox.internal.ProfilesIni;
  *
  */
 public class Capabilities {
-	
+
 	/**
 	 * 
 	 * Desativar logs.
@@ -33,7 +32,7 @@ public class Capabilities {
 			l.setLevel(Level.OFF);
 		}
 	}
-	
+
 	/**
 	 * Retorna as configurações do navegador informado.
 	 * 
@@ -44,8 +43,6 @@ public class Capabilities {
 		MutableCapabilities capabilities = null;
 		if (browser.equals("chrome")) {
 			capabilities = Capabilities.getChromeCapabilities();
-		} else if (browser.equals("chrome-headless")) {
-			capabilities = Capabilities.getChromeHeadlessCapabilities();
 		} else if (browser.equals("firefox")) {
 			capabilities = Capabilities.getFirefoxCapabilities();
 		}
@@ -55,25 +52,22 @@ public class Capabilities {
 	/**
 	 * Configurações do navegador Google Chrome.
 	 * 
-	 * @return capabilities
+	 * @return chrome options
 	 */
-	public static MutableCapabilities getChromeCapabilities() {
+	public static ChromeOptions getChromeCapabilities() {
 		ChromeOptions options = new ChromeOptions();
 		options.addArguments("start-maximized");
 		options.addArguments("ignore-certificate-errors");
 		options.addArguments("test-type");
-		MutableCapabilities capabilities = new ChromeOptions();
-		capabilities.setCapability(ChromeOptions.CAPABILITY, options);
-		capabilities.setCapability("platform", Platform.WINDOWS);
-		return capabilities;
+		return options;
 	}
 
 	/**
-	 * Configurações do navegador Google Chrome em modo Headless.
+	 * Configurações do navegador Google Chrome em modo headless
 	 * 
-	 * @return capabilities
+	 * @return chrome options
 	 */
-	public static MutableCapabilities getChromeHeadlessCapabilities() {
+	public static ChromeOptions getChromeHeadlessCapabilities() {
 		ChromeOptions options = new ChromeOptions();
 		options.addArguments("headless");
 		options.addArguments("test-type=ui");
@@ -83,29 +77,25 @@ public class Capabilities {
 		options.addArguments("ignore-certificate-errors");
 		options.addArguments("--dns-prefetch-disable");
 		options.addArguments("window-size=1280x1024");
-		MutableCapabilities capabilities = new ChromeOptions();
-		capabilities.setCapability(ChromeOptions.CAPABILITY, options);
-		capabilities.setCapability("platform", Platform.WINDOWS);
-		return capabilities;
+		return options;
 	}
-
+	
 	/**
 	 * Configurações do navegador Mozilla Firefox.
 	 * 
 	 * @return capabilities
 	 */
-	public static MutableCapabilities getFirefoxCapabilities() {
-		MutableCapabilities capabilities = new FirefoxOptions();
+	public static FirefoxOptions getFirefoxCapabilities() {
+		FirefoxOptions options = new FirefoxOptions();
 		ProfilesIni profile = new ProfilesIni();
 		FirefoxProfile firefoxProfile = profile.getProfile("default");
-		capabilities.setCapability(FirefoxDriver.PROFILE, firefoxProfile);
-		capabilities.setCapability("marionette", true);
-		capabilities.setCapability("acceptSslCerts", true);
+		options.setCapability(FirefoxDriver.PROFILE, firefoxProfile);
+		options.setCapability("marionette", true);
+		options.setCapability("acceptSslCerts", true);
 
 		System.setProperty(FirefoxDriver.SystemProperty.DRIVER_USE_MARIONETTE, "true");
 		System.setProperty(FirefoxDriver.SystemProperty.BROWSER_LOGFILE, "logs.txt");
-
-		return capabilities;
+		return options;
 	}
 
 }

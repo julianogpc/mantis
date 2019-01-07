@@ -1,5 +1,5 @@
 # mantis
-Automation Tests on Mantis Bug Tracker versão 1.2.19.
+Automation Tests on Mantis Bug Tracker version 1.2.19.
 
 ### Build With
 * [Eclipse IDE](http://www.eclipse.org/downloads/packages/eclipse-ide-java-developers/neon3/) 
